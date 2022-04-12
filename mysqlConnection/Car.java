@@ -1,4 +1,4 @@
-package main;
+package mysqlConnection;
 /*
 개별 차 정보를 나타내는 dto 
 */
