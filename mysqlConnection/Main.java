@@ -1,4 +1,4 @@
-package main;
+package mysqlConnection;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
