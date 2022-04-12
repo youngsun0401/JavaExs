@@ -1,4 +1,4 @@
-package main;
+package mysqlConnection;
 /*
 DB에 연결, 받은 값으로 DB에 차 삽입, 삭제, 수정 등을 하는 함수들이 있다.
 작업 실패시 
