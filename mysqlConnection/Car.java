@@ -1,5 +1,7 @@
 package main;
-
+/*
+차 
+*/
 public class Car {
 	private int num;
 	private String ctype;
