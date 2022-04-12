@@ -1,6 +1,6 @@
 package main;
 /*
-차 
+개별 차 정보를 나타내는 dto 
 */
 public class Car {
 	private int num;
