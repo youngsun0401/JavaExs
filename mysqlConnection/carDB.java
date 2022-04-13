@@ -1,19 +1,14 @@
 package mysqlConnection;
-/*
-DB에 연결, 받은 값으로 DB에 차 삽입, 삭제, 수정 등을 하는 함수들이 있다.
-작업 실패시 
-*/
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-//import com.mysql.cj.jdbc.Driver;//????
 
 import dto.Car;
 
-/* car db를 만든 쿼리문은 이렇다
+/* car db 만든 쿼리문은 이렇다
 DROP database if exists cardb;
 CREATE database cardb;
 use cardb;
@@ -36,7 +31,7 @@ public class CarDB {
 		String url = "jdbc:mysql://localhost:3306/cardb?useSSL=false";// 참고로 localhost는 127.0.0.1과 같다.
 		String id = "root";
 		String pw = "rootroot";
-//		Class.forName("com.mysql.cj.jdbc.Driver");//? 왜 있는
+		Class.forName("com.mysql.cj.jdbc.Driver");// 반환값도 안 받는 게 왜 있는가 했는데…. 클래스 정보를 가져온다고 하는데…. 나도 잘 모르겠는데 이클립스에서 빌드패스로 가져오면 이거 없어도 잘 되는데 딴데서 불러오면 이거 없으면 안 되네.
 		conn = DriverManager.getConnection(url, id, pw);
 		System.out.println("DB 연결 성공");
 	}
@@ -105,9 +100,15 @@ public class CarDB {
 	
 	//// DB 닫기
 	public void close() {
-		if( conn != null || pstmt != null ) {
+		if( conn != null ) {
 			try {
 				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if( pstmt != null ) {
+			try {
 				pstmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -121,6 +122,6 @@ public class CarDB {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("close()");
+		System.out.println("db closed");
 	}
 }
